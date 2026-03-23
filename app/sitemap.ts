@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { CATEGORIES } from "@/app/lib/data";
-import { SEO_CITIES, SEO_COUNTRIES, BLOG_POSTS } from "@/app/lib/seo-data";
+import { SEO_CITIES, SEO_COUNTRIES, SEO_STATES, SEO_INDUSTRIES, GLOSSARY_TERMS, COMPARISONS, BLOG_POSTS } from "@/app/lib/seo-data";
 
 const BASE = "https://atozmachines.store";
 
@@ -87,6 +87,58 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url(`/blog/${post.slug}`, 0.7, "monthly", new Date(post.publishedAt))
   );
 
+  // ── State Hub Pages (/suppliers/state/[state]) ────────────────────────────
+  const stateHubPages: MetadataRoute.Sitemap = SEO_STATES.map((s) =>
+    url(`/suppliers/state/${s.slug}`, 0.8, "weekly")
+  );
+
+  // ── State+Category Pages (/suppliers/state/[state]/[category]) ───────────
+  const stateCategoryPages: MetadataRoute.Sitemap = SEO_STATES.flatMap((s) =>
+    CATEGORIES.map((cat) =>
+      url(`/suppliers/state/${s.slug}/${cat.slug}`, 0.8, "weekly")
+    )
+  );
+
+  // ── Industry Hub Pages (/industry/[industry]) ─────────────────────────────
+  const industryHubPages: MetadataRoute.Sitemap = SEO_INDUSTRIES.map((ind) =>
+    url(`/industry/${ind.slug}`, 0.7, "weekly")
+  );
+
+  // ── Industry+Category Pages (/industry/[industry]/[category]) ────────────
+  const industryCategoryPages: MetadataRoute.Sitemap = SEO_INDUSTRIES.flatMap((ind) =>
+    ind.machineCategories.map((cat) =>
+      url(`/industry/${ind.slug}/${cat}`, 0.7, "weekly")
+    )
+  );
+
+  // ── Used Machines Pages (/used-machines/[category]) ──────────────────────
+  const usedMachinePages: MetadataRoute.Sitemap = CATEGORIES.map((cat) =>
+    url(`/used-machines/${cat.slug}`, 0.7, "weekly")
+  );
+
+  // ── RFQ by Category Pages (/post-rfq/[category]) ─────────────────────────
+  const rfqCategoryPages: MetadataRoute.Sitemap = CATEGORIES.map((cat) =>
+    url(`/post-rfq/${cat.slug}`, 0.8, "weekly")
+  );
+
+  // ── Glossary Pages (/glossary/[term]) ─────────────────────────────────────
+  const glossaryPages: MetadataRoute.Sitemap = GLOSSARY_TERMS.map((t) =>
+    url(`/glossary/${t.slug}`, 0.6, "monthly")
+  );
+
+  // ── Comparison Pages (/compare/[slug]) ────────────────────────────────────
+  const comparisonPages: MetadataRoute.Sitemap = COMPARISONS.map((c) =>
+    url(`/compare/${c.slug}`, 0.6, "monthly")
+  );
+
+  // ── Static Content Pages ──────────────────────────────────────────────────
+  const contentPages: MetadataRoute.Sitemap = [
+    url("/about", 0.5, "monthly"),
+    url("/contact", 0.5, "monthly"),
+    url("/privacy-policy", 0.3, "yearly"),
+    url("/terms-of-service", 0.3, "yearly"),
+  ];
+
   return [
     ...staticPages,
     ...categoryPages,
@@ -95,8 +147,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...priceGuidePages,
     ...supplierCityPages,
     ...supplierCityCategoryPages,
+    ...stateHubPages,
+    ...stateCategoryPages,
     ...globalCountryPages,
     ...globalCountryCategoryPages,
+    ...industryHubPages,
+    ...industryCategoryPages,
+    ...usedMachinePages,
+    ...rfqCategoryPages,
+    ...glossaryPages,
+    ...comparisonPages,
     ...blogPages,
+    ...contentPages,
   ];
 }

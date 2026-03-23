@@ -862,6 +862,783 @@ A TO Z Machines is built specifically for the RFQ workflow. Post your requiremen
   },
 ];
 
+// ─── Indian States ────────────────────────────────────────────────────────────
+
+export interface SeoState {
+  name: string;
+  slug: string;
+  capital: string;
+  industrialCities: string[];
+  knownFor: string;
+  vendorCount: number;
+}
+
+export const SEO_STATES: SeoState[] = [
+  { name: "Gujarat", slug: "gujarat", capital: "Gandhinagar", industrialCities: ["Rajkot", "Ahmedabad", "Surat", "Vadodara"], knownFor: "CNC machines, pharma machinery, packaging equipment, textile machines", vendorCount: 520 },
+  { name: "Maharashtra", slug: "maharashtra", capital: "Mumbai", industrialCities: ["Pune", "Mumbai", "Nashik", "Aurangabad"], knownFor: "Hydraulic systems, automotive machinery, compressors, precision engineering", vendorCount: 480 },
+  { name: "Tamil Nadu", slug: "tamil-nadu", capital: "Chennai", industrialCities: ["Coimbatore", "Chennai", "Tiruppur", "Salem"], knownFor: "Press machines, pumps, motors, compressors, foundry equipment", vendorCount: 390 },
+  { name: "Punjab", slug: "punjab", capital: "Chandigarh", industrialCities: ["Ludhiana", "Amritsar", "Jalandhar", "Batala"], knownFor: "Packaging machines, lathe machines, auto parts, conveyor systems", vendorCount: 280 },
+  { name: "Haryana", slug: "haryana", capital: "Chandigarh", industrialCities: ["Faridabad", "Gurugram", "Panipat", "Ambala"], knownFor: "Sheet metal machines, press machines, welding equipment, fabrication", vendorCount: 240 },
+  { name: "Karnataka", slug: "karnataka", capital: "Bengaluru", industrialCities: ["Bengaluru", "Mysuru", "Hubballi", "Mangaluru"], knownFor: "CNC machines, aerospace tooling, electronics manufacturing, precision tools", vendorCount: 310 },
+  { name: "West Bengal", slug: "west-bengal", capital: "Kolkata", industrialCities: ["Kolkata", "Durgapur", "Asansol", "Siliguri"], knownFor: "Heavy engineering, conveyor systems, steel plant equipment, fabrication", vendorCount: 210 },
+  { name: "Telangana", slug: "telangana", capital: "Hyderabad", industrialCities: ["Hyderabad", "Warangal", "Karimnagar"], knownFor: "Pharma machinery, testing equipment, precision tools, water treatment", vendorCount: 195 },
+  { name: "Rajasthan", slug: "rajasthan", capital: "Jaipur", industrialCities: ["Jaipur", "Jodhpur", "Udaipur", "Bhilwara"], knownFor: "Textile machines, marble cutting equipment, mining machinery", vendorCount: 160 },
+  { name: "Uttar Pradesh", slug: "uttar-pradesh", capital: "Lucknow", industrialCities: ["Kanpur", "Agra", "Meerut", "Noida", "Ghaziabad"], knownFor: "Leather machinery, sugar plant equipment, CNC machines, press machines", vendorCount: 290 },
+  { name: "Madhya Pradesh", slug: "madhya-pradesh", capital: "Bhopal", industrialCities: ["Indore", "Bhopal", "Jabalpur", "Pithampur"], knownFor: "Packaging machines, material handling, food processing equipment", vendorCount: 145 },
+  { name: "Andhra Pradesh", slug: "andhra-pradesh", capital: "Amaravati", industrialCities: ["Visakhapatnam", "Vijayawada", "Guntur", "Tirupati"], knownFor: "Steel plant equipment, pharma machinery, material handling", vendorCount: 130 },
+  { name: "Jharkhand", slug: "jharkhand", capital: "Ranchi", industrialCities: ["Jamshedpur", "Ranchi", "Dhanbad", "Bokaro"], knownFor: "Heavy machinery, steel plant equipment, mining equipment, conveyor systems", vendorCount: 115 },
+  { name: "Odisha", slug: "odisha", capital: "Bhubaneswar", industrialCities: ["Bhubaneswar", "Cuttack", "Rourkela", "Sambalpur"], knownFor: "Steel plant machinery, mining equipment, heavy fabrication", vendorCount: 95 },
+  { name: "Kerala", slug: "kerala", capital: "Thiruvananthapuram", industrialCities: ["Kochi", "Thrissur", "Kozhikode", "Palakkad"], knownFor: "Rubber processing machinery, food processing, coconut processing equipment", vendorCount: 110 },
+];
+
+// ─── Industries ───────────────────────────────────────────────────────────────
+
+export interface SeoIndustry {
+  name: string;
+  slug: string;
+  icon: string;
+  description: string;
+  machineCategories: string[];
+  topStates: string[];
+  challenges: string[];
+  benefits: string[];
+}
+
+export const SEO_INDUSTRIES: SeoIndustry[] = [
+  {
+    name: "Automotive",
+    slug: "automotive",
+    icon: "🚗",
+    description: "India's automotive sector is the world's 3rd largest, requiring precision CNC machines, press machines, welding equipment, and conveyor systems for OEM and tier-1 suppliers.",
+    machineCategories: ["cnc-machines", "press-machines", "welding-equipment", "conveyor-systems", "material-handling"],
+    topStates: ["Maharashtra", "Gujarat", "Tamil Nadu", "Haryana", "Karnataka"],
+    challenges: ["Sub-micron tolerances for engine components", "High-volume production consistency", "JIT delivery requirements", "Multi-material capability (steel, aluminium, composites)"],
+    benefits: ["CNC machines enable lights-out production", "Press machines reduce material waste by 30%", "Automated conveyors improve throughput by 40%"],
+  },
+  {
+    name: "Pharmaceutical",
+    slug: "pharma",
+    icon: "💊",
+    description: "India is the world's pharmacy, manufacturing 20% of global generic drugs. Pharma plants require GMP-compliant packaging machines, water treatment systems, and testing equipment.",
+    machineCategories: ["packaging-machines", "water-treatment", "testing-equipment", "compressors"],
+    topStates: ["Gujarat", "Telangana", "Maharashtra", "Himachal Pradesh", "Andhra Pradesh"],
+    challenges: ["GMP / Schedule M compliance mandatory", "FDA 21 CFR Part 11 data integrity", "Cleanroom contamination control", "Validation documentation (IQ/OQ/PQ)"],
+    benefits: ["Automated packaging reduces human error", "RO/WFI water systems meet USP standards", "GMP compressors eliminate oil contamination"],
+  },
+  {
+    name: "FMCG",
+    slug: "fmcg",
+    icon: "🛒",
+    description: "India's FMCG sector requires high-speed packaging machines, filling systems, and conveyor lines to handle millions of units daily across food, beverage, and personal care categories.",
+    machineCategories: ["packaging-machines", "conveyor-systems", "material-handling", "compressors"],
+    topStates: ["Maharashtra", "Karnataka", "Punjab", "Gujarat", "Uttar Pradesh"],
+    challenges: ["Speed requirements (1000+ packs/hour)", "Multi-SKU flexibility (quick changeover)", "Food-grade material compliance (SS 304/316)", "Shelf-life and seal integrity requirements"],
+    benefits: ["Servo-driven packaging improves accuracy by 99%", "Automated lines reduce labor costs by 60%", "Integrated QC reduces rejects significantly"],
+  },
+  {
+    name: "Food Processing",
+    slug: "food-processing",
+    icon: "🌾",
+    description: "India's food processing industry is the 5th largest globally. Processing plants require packaging machines, conveyor systems, material handling equipment, and water treatment systems.",
+    machineCategories: ["packaging-machines", "conveyor-systems", "water-treatment", "testing-equipment", "compressors"],
+    topStates: ["Punjab", "Maharashtra", "Karnataka", "Andhra Pradesh", "Gujarat"],
+    challenges: ["FSSAI compliance and food safety standards", "Hygienic design (IP65+ rating, no dead zones)", "Temperature control during processing", "Allergen cross-contamination prevention"],
+    benefits: ["Automated grading reduces waste by 25%", "Hygienic conveyors meet HACCP requirements", "Efficient packaging extends shelf life"],
+  },
+  {
+    name: "Aerospace & Defence",
+    slug: "aerospace",
+    icon: "✈️",
+    description: "India's aerospace sector is growing rapidly with ISRO, HAL, and private players like Tata Advanced Systems. Aerospace manufacturing demands the highest-precision CNC machines and testing equipment.",
+    machineCategories: ["cnc-machines", "testing-equipment", "sheet-metal", "welding-equipment"],
+    topStates: ["Karnataka", "Tamil Nadu", "Maharashtra", "Telangana", "Uttar Pradesh"],
+    challenges: ["AS9100D certification requirement", "Tolerances to ±0.002mm and tighter", "Material traceability for every component", "Special process approvals (Nadcap)"],
+    benefits: ["5-axis CNC enables complex aerostructure parts", "CMM ensures dimensional compliance", "Automated welding improves joint consistency"],
+  },
+  {
+    name: "Textile",
+    slug: "textile",
+    icon: "🧵",
+    description: "India is the world's 2nd largest textile producer. Textile plants require specialized spinning machines, weaving equipment, compressors, and material handling systems.",
+    machineCategories: ["compressors", "material-handling", "conveyor-systems", "testing-equipment"],
+    topStates: ["Gujarat", "Tamil Nadu", "Maharashtra", "Rajasthan", "Punjab"],
+    challenges: ["High humidity and dust environment", "Continuous 24/7 operation requirement", "Energy efficiency (textile is energy-intensive)", "Fiber contamination prevention"],
+    benefits: ["Variable speed compressors save 30% energy", "Automated material handling reduces fiber damage", "Testing equipment ensures yarn quality standards"],
+  },
+  {
+    name: "Steel & Metal",
+    slug: "steel-metal",
+    icon: "⚙️",
+    description: "India is the world's 2nd largest steel producer. Steel plants and metal fabricators require heavy press machines, material handling equipment, CNC machines, and conveyor systems.",
+    machineCategories: ["press-machines", "material-handling", "cnc-machines", "welding-equipment", "conveyor-systems"],
+    topStates: ["Jharkhand", "Odisha", "West Bengal", "Chhattisgarh", "Maharashtra"],
+    challenges: ["Extreme heat and scale management", "Heavy load handling (100+ ton coils)", "Tight flatness and thickness tolerances", "High cycle rate for rolling mill operations"],
+    benefits: ["Heavy-duty conveyors handle 50-ton loads", "CNC plasma cutting improves yield by 15%", "Automated press lines reduce manning costs"],
+  },
+  {
+    name: "Chemical & Petrochemical",
+    slug: "chemical",
+    icon: "🧪",
+    description: "India's chemical industry is the 3rd largest in Asia. Chemical plants require corrosion-resistant equipment including special compressors, hydraulic systems, water treatment plants, and testing equipment.",
+    machineCategories: ["compressors", "hydraulic-systems", "water-treatment", "testing-equipment"],
+    topStates: ["Gujarat", "Maharashtra", "Andhra Pradesh", "Rajasthan", "Tamil Nadu"],
+    challenges: ["Corrosion resistance (Hastelloy, SS 316L required)", "ATEX/PESO certified equipment for hazardous zones", "Compliance with CPCB effluent norms", "Continuous process — no downtime allowed"],
+    benefits: ["ETP systems meet CPCB standards", "Special alloy compressors resist corrosion", "Hydraulic systems enable precise process control"],
+  },
+];
+
+// ─── Glossary Terms ───────────────────────────────────────────────────────────
+
+export interface GlossaryTerm {
+  slug: string;
+  term: string;
+  shortDef: string;
+  category: string;
+  content: string;
+  relatedTerms: string[];
+  relatedCategories: string[];
+}
+
+export const GLOSSARY_TERMS: GlossaryTerm[] = [
+  {
+    slug: "what-is-rfq",
+    term: "RFQ (Request for Quotation)",
+    shortDef: "A formal document sent by a buyer to suppliers requesting a price quote for specific goods or services.",
+    category: "Procurement",
+    content: `An RFQ (Request for Quotation) is a standard procurement document that a buyer sends to one or more suppliers to request pricing for specific goods or services.
+
+## How an RFQ Works
+
+The buyer describes what they need — machine type, specifications, quantity, delivery location, and timeline. Suppliers review the RFQ and respond with a formal quote (price, lead time, payment terms).
+
+## RFQ vs RFP vs RFI
+
+- **RFQ** (Request for Quotation): You know exactly what you want, just need pricing
+- **RFP** (Request for Proposal): You need suppliers to propose a solution, not just price it
+- **RFI** (Request for Information): You're gathering market information, not ready to buy yet
+
+## Key Components of an RFQ
+
+1. Part name or machine description
+2. Quantity required
+3. Technical specifications or drawings
+4. Delivery location and deadline
+5. Budget range (optional but helpful)
+6. Quality or certification requirements
+
+## Benefits of Using RFQ
+
+- Compare multiple supplier quotes in a standardized format
+- Competitive pricing through supplier competition
+- Clear documentation for purchase approval
+- Audit trail for procurement compliance
+
+## RFQ on A TO Z Machines
+
+On A TO Z Machines, buyers post structured RFQs that are automatically matched to relevant verified manufacturers. You receive multiple quotes in a single dashboard within 24 hours.`,
+    relatedTerms: ["purchase-order", "lead-time", "bill-of-materials", "factory-acceptance-test"],
+    relatedCategories: ["cnc-machines", "packaging-machines"],
+  },
+  {
+    slug: "what-is-vmc-machine",
+    term: "VMC Machine (Vertical Machining Center)",
+    shortDef: "A CNC machine tool with a vertical spindle orientation used for milling, drilling, and boring of metal parts.",
+    category: "CNC Machines",
+    content: `A VMC (Vertical Machining Center) is a CNC machine where the spindle axis is oriented vertically — the cutting tool points straight down at the workpiece.
+
+## How a VMC Works
+
+The workpiece is clamped on a horizontal table. The vertical spindle moves in X, Y, and Z axes to cut the material using rotating end mills, drills, or boring tools. A tool magazine automatically changes tools during the machining cycle.
+
+## Key VMC Specifications
+
+- **Table size**: Determines max workpiece dimensions (e.g., 850×450mm)
+- **X/Y/Z travel**: Maximum cutting envelope
+- **Spindle speed**: Typically 8,000–15,000 RPM for standard VMCs
+- **Tool magazine**: 20–40 tools in automatic tool changer (ATC)
+- **Controller**: Fanuc, Siemens, Mitsubishi, GSK
+
+## VMC vs HMC
+
+| Feature | VMC | HMC |
+|---------|-----|-----|
+| Spindle orientation | Vertical | Horizontal |
+| Chip evacuation | Poor (gravity into pocket) | Excellent (gravity away) |
+| Cost | Lower | Higher (30–50%) |
+| Part accessibility | Good for flat parts | Better for 4-sided machining |
+| Productivity | Good | Higher for production |
+
+## VMC Price in India
+
+Standard 3-axis VMC: ₹8–25 Lakh. 4-axis: ₹25–40 Lakh. 5-axis: ₹40 Lakh–1.5 Crore.
+
+## Top Indian VMC Manufacturers
+
+Rajkot (Gujarat) is India's largest VMC manufacturing cluster, with brands like Jyoti, Feeler (Taiwan assembled in India), and many others.`,
+    relatedTerms: ["what-is-hmc-machine", "cnc-controller", "tool-changer", "spindle-speed"],
+    relatedCategories: ["cnc-machines", "lathe-machines"],
+  },
+  {
+    slug: "what-is-hmc-machine",
+    term: "HMC Machine (Horizontal Machining Center)",
+    shortDef: "A CNC machining center where the spindle is oriented horizontally, enabling better chip evacuation and 4-sided machining.",
+    category: "CNC Machines",
+    content: `An HMC (Horizontal Machining Center) is a CNC machine where the spindle points horizontally at the workpiece. Unlike VMCs, HMCs use pallet changers for continuous production and excel at multi-sided machining.
+
+## Advantages of HMC
+
+- **Chip evacuation**: Chips fall away from the workpiece by gravity, preventing re-cutting
+- **Pallet changer**: While one part is being machined, the next part is being loaded on the second pallet — near-continuous operation
+- **4-sided machining**: Rotary table enables machining on 4 faces without re-clamping
+- **Higher rigidity**: Horizontal spindle design is inherently more rigid for heavy cuts
+
+## When to Choose HMC over VMC
+
+Choose an HMC when: you need high-volume production of prismatic parts, you need 4-sided machining in one setup, you need better chip management, or your cycle time needs to be minimized.
+
+## HMC Price in India
+
+HMC machines cost 30–50% more than equivalent VMCs. Typical range: ₹30–80 Lakh for standard models. 5-axis HMC: ₹1–3 Crore.
+
+## Applications
+
+Engine blocks, transmission cases, hydraulic manifolds, aerospace structural parts, and any prismatic component requiring multiple machined faces.`,
+    relatedTerms: ["what-is-vmc-machine", "pallet-changer", "4-axis-machining"],
+    relatedCategories: ["cnc-machines"],
+  },
+  {
+    slug: "what-is-cnc",
+    term: "CNC (Computer Numerical Control)",
+    shortDef: "Technology that uses computers to control machine tools, enabling precise, repeatable, and automated machining of parts.",
+    category: "Technology",
+    content: `CNC (Computer Numerical Control) is the automated control of machine tools using computers and G-code programs. A CNC machine reads a program and precisely moves cutting tools to machine a part.
+
+## How CNC Works
+
+1. A CAD (Computer-Aided Design) model of the part is created
+2. CAM (Computer-Aided Manufacturing) software converts the model into G-code — a series of coordinate-based movement instructions
+3. The CNC controller reads the G-code and commands servo motors to move the machine axes
+4. The cutting tool removes material precisely according to the program
+
+## CNC vs Conventional Machines
+
+| Feature | CNC Machine | Conventional Machine |
+|---------|-------------|---------------------|
+| Repeatability | ±0.001–0.01mm | ±0.05–0.1mm |
+| Speed | High (automated) | Operator-dependent |
+| Skill required | CNC programming | Manual machining skill |
+| Setup time | Longer (programming) | Shorter |
+| Batch production | Excellent | Labor-intensive |
+
+## CNC Machine Types
+
+- **CNC VMC**: Vertical milling
+- **CNC Lathe/Turning Center**: Cylindrical parts
+- **CNC EDM**: Hardened steel, complex cavities
+- **CNC Grinding**: Ultra-precision finishing
+- **CNC Plasma/Laser**: Sheet metal cutting
+
+## CNC Price in India
+
+Entry-level CNC lathe: ₹5–8 Lakh. Standard VMC: ₹10–25 Lakh. Advanced 5-axis machining center: ₹40 Lakh–2 Crore.`,
+    relatedTerms: ["what-is-vmc-machine", "what-is-hmc-machine", "g-code", "cam-software"],
+    relatedCategories: ["cnc-machines", "lathe-machines"],
+  },
+  {
+    slug: "what-is-hydraulic-press",
+    term: "Hydraulic Press",
+    shortDef: "A machine that uses hydraulic pressure to generate compressive force for stamping, forming, and deep drawing metal.",
+    category: "Press Machines",
+    content: `A hydraulic press uses Pascal's law — pressure applied to a confined fluid is transmitted equally in all directions — to generate large compressive forces for metalworking operations.
+
+## How a Hydraulic Press Works
+
+A hydraulic pump pressurizes oil in a cylinder. The pressurized oil pushes a ram (piston) downward with controlled force. The ram applies this force to a die or tooling, forming or cutting the workpiece.
+
+## Hydraulic Press vs Mechanical Press
+
+| Feature | Hydraulic Press | Mechanical Press |
+|---------|----------------|-----------------|
+| Force control | Variable, precise | Fixed at bottom dead center |
+| Speed | Slower | Faster (SPM higher) |
+| Stroke control | Flexible | Fixed by crank |
+| Tonnage range | Small to very large | Typically up to 400T |
+| Deep drawing | Excellent | Limited |
+| Cost | Higher | Lower for same tonnage |
+
+## Key Specifications
+
+- **Tonnage (capacity)**: Force in metric tons (20T to 5000T)
+- **Table size**: Bed dimensions for tooling
+- **Stroke length**: Maximum ram travel
+- **Daylight**: Open height between table and ram
+- **Control**: Manual, semi-auto, or PLC/servo
+
+## Hydraulic Press Price in India
+
+50-ton: ₹5–8 Lakh. 100-ton: ₹8–15 Lakh. 200-ton: ₹15–30 Lakh. 500-ton: ₹40–80 Lakh.
+
+## Applications
+
+Deep drawing (kitchen sinks, auto parts), stamping, forging, powder compaction, rubber moulding, and plastic forming.`,
+    relatedTerms: ["what-is-rfq", "hydraulic-power-pack", "die-stamping", "deep-drawing"],
+    relatedCategories: ["press-machines", "hydraulic-systems"],
+  },
+  {
+    slug: "what-is-bom",
+    term: "BOM (Bill of Materials)",
+    shortDef: "A comprehensive list of all raw materials, components, and assemblies required to manufacture a product.",
+    category: "Manufacturing",
+    content: `A BOM (Bill of Materials) is a structured list of all materials, components, sub-assemblies, and quantities needed to manufacture a product or machine.
+
+## Types of BOM
+
+- **Engineering BOM (EBOM)**: Created by design engineering, reflects the design intent
+- **Manufacturing BOM (MBOM)**: Adapted for production, includes process-specific details
+- **Sales BOM (SBOM)**: Used by sales to configure products for customers
+
+## BOM in Machinery Procurement
+
+When buying a custom machine, always request the BOM from the manufacturer. It reveals:
+- Brand and origin of key components (motor, gearbox, controller, sensors)
+- Whether Indian or imported components are used
+- Replacement parts availability
+- Total system complexity and maintainability
+
+## What to Check in a Machine BOM
+
+1. Motor brand (Siemens, ABB, Crompton vs unknown)
+2. PLC/controller brand (Siemens, Allen-Bradley, Delta vs no-name)
+3. Bearing brand (SKF, FAG, Timken vs generic)
+4. Pneumatic/hydraulic components (SMC, Festo, Parker vs local)
+5. Electrical components (L&T, Schneider, ABB vs unbranded)
+
+The component quality in the BOM directly determines machine reliability and maintenance cost over its lifetime.`,
+    relatedTerms: ["what-is-rfq", "factory-acceptance-test", "lead-time"],
+    relatedCategories: ["cnc-machines", "packaging-machines", "hydraulic-systems"],
+  },
+  {
+    slug: "factory-acceptance-test",
+    term: "FAT (Factory Acceptance Test)",
+    shortDef: "A test performed at the manufacturer's facility before shipment to verify the machine meets agreed specifications.",
+    category: "Quality",
+    content: `A Factory Acceptance Test (FAT) is a formal test conducted at the machine manufacturer's facility before the equipment is shipped to the buyer. The buyer's team witnesses the test to confirm the machine meets all agreed specifications.
+
+## Why FAT Matters
+
+Fixing problems at the factory is far cheaper than fixing them after installation at your plant. A FAT catches:
+- Dimensional or performance deviations from specs
+- Control logic errors
+- Safety system failures
+- Missing or wrong components
+
+## FAT Checklist for Industrial Machines
+
+1. **Dimensional verification**: Key dimensions match drawing
+2. **Performance test**: Run at rated speed/load for defined duration
+3. **Accuracy check**: Measure output parts or test cuts
+4. **Safety systems**: E-stops, guards, interlocks all functional
+5. **Controls check**: All HMI screens, alarms, modes working
+6. **Documentation**: Manuals, spare parts list, certificates available
+
+## FAT vs SAT
+
+- **FAT** (Factory Acceptance Test): At manufacturer's facility
+- **SAT** (Site Acceptance Test): After installation at buyer's plant
+
+## When to Insist on FAT
+
+For any machine order above ₹10 Lakh, always insist on witnessing a FAT. For complex custom machines or import orders, FAT is non-negotiable — it saves expensive site visits for rework.`,
+    relatedTerms: ["what-is-rfq", "what-is-bom", "lead-time"],
+    relatedCategories: ["cnc-machines", "packaging-machines", "testing-equipment"],
+  },
+  {
+    slug: "lead-time",
+    term: "Lead Time (Machinery)",
+    shortDef: "The total time from placing a purchase order to receiving the machine at your facility.",
+    category: "Procurement",
+    content: `Lead time in machinery procurement is the time from when you place a purchase order (PO) to when the machine is delivered and ready for use at your facility.
+
+## Components of Machinery Lead Time
+
+1. **Manufacturing lead time**: Time to build the machine (most significant)
+2. **Procurement lead time**: Time to source imported components (motors, controllers)
+3. **Testing time**: FAT and documentation
+4. **Shipping time**: Transit from factory to your location
+5. **Installation time**: Commissioning and handover
+
+## Typical Lead Times by Machine Type
+
+| Machine Type | Standard | Custom |
+|-------------|---------|--------|
+| Lathe machines | 2–4 weeks | 4–8 weeks |
+| CNC VMC (standard) | 4–8 weeks | 8–16 weeks |
+| Packaging machines | 3–6 weeks | 6–12 weeks |
+| Hydraulic press | 4–8 weeks | 8–20 weeks |
+| Custom machinery | N/A | 12–24 weeks |
+
+## Factors That Affect Lead Time
+
+- Imported components (Fanuc, Siemens): Add 4–8 weeks
+- Custom non-standard specifications: Adds engineering time
+- Busy season (Oct–March in India): Manufacturers have full order books
+- Payment terms: Most manufacturers start production after advance payment
+
+## How to Reduce Lead Time Risk
+
+- Order well in advance of your startup date
+- Confirm component availability before PO
+- Lock in delivery date in your purchase order
+- Build in 2-week buffer for unexpected delays`,
+    relatedTerms: ["what-is-rfq", "factory-acceptance-test", "what-is-bom"],
+    relatedCategories: ["cnc-machines", "packaging-machines", "hydraulic-systems"],
+  },
+  {
+    slug: "gst-verified-vendor",
+    term: "GST Verified Vendor",
+    shortDef: "A supplier whose GST registration number has been verified against government records, confirming they are a legally registered business.",
+    category: "Trust & Compliance",
+    content: `A GST verified vendor is a supplier whose GSTIN (Goods and Services Tax Identification Number) has been verified against the official GST database at gst.gov.in.
+
+## Why GST Verification Matters
+
+In India, any business with annual turnover above ₹40 Lakh (₹20 Lakh for services) is required to register for GST. A GST number confirms:
+- The business is legally registered in India
+- They file tax returns (indicates active business)
+- They can issue valid GST invoices (important for input tax credit)
+- Their business name and state match their claims
+
+## How to Verify a GST Number Yourself
+
+1. Visit gst.gov.in → Search Taxpayer → Search by GSTIN
+2. Enter the supplier's GSTIN
+3. Verify: Legal name, Trade name, Registration date, Status (Active/Cancelled), State
+
+## Red Flags in GST Verification
+
+- Status shows "Cancelled" — business may have shut down
+- Registration date is very recent (< 6 months) for a supplier claiming years of experience
+- State mismatch — claiming to be from Gujarat but GST shows Maharashtra
+- Name mismatch — invoice name differs from GST registration
+
+## GST Verification on A TO Z Machines
+
+All vendors on A TO Z Machines are required to submit their GST number during registration. Our admin team manually verifies it before approving the vendor profile. The "GST Verified" badge on vendor profiles confirms this check has been completed.`,
+    relatedTerms: ["what-is-rfq", "factory-acceptance-test"],
+    relatedCategories: ["cnc-machines", "packaging-machines"],
+  },
+  {
+    slug: "screw-compressor-vs-piston-compressor",
+    term: "Screw Compressor vs Piston Compressor — Which Should You Buy?",
+    shortDef: "Screw compressors are better for continuous heavy-duty use; piston compressors suit intermittent or lighter duty applications.",
+    category: "Compressors",
+    content: `Choosing between a screw compressor and a piston (reciprocating) compressor is one of the most common dilemmas for plant managers. Here's a detailed comparison.
+
+## How They Work
+
+**Screw compressor**: Two interlocking helical rotors trap and compress air continuously. No reciprocating motion — smooth, vibration-free operation.
+
+**Piston compressor**: A piston moves back and forth in a cylinder, drawing in and compressing air in strokes. Simpler mechanism, lower cost.
+
+## Head-to-Head Comparison
+
+| Feature | Screw Compressor | Piston Compressor |
+|---------|-----------------|-------------------|
+| Duty cycle | 100% continuous | 50–70% (needs cooling) |
+| Air quality | Oil-injected or oil-free | Generally oil-injected |
+| Energy efficiency | Better with VFD | Less efficient |
+| Noise level | Lower (60–70 dB) | Higher (75–85 dB) |
+| Maintenance | Lower (longer intervals) | Higher (more wear parts) |
+| Initial cost | Higher | Lower |
+| HP range | 5–500 HP | 1–100 HP |
+| Vibration | Low (balanced rotors) | High (reciprocating) |
+
+## When to Choose Screw
+
+- Continuous production requiring air 24/7
+- Sensitive environments (cleanrooms, labs)
+- Above 15 HP requirement
+- When energy cost is a major concern (VFD screw saves 20–35%)
+
+## When to Choose Piston
+
+- Intermittent use (few hours/day)
+- Small workshop or garage
+- Budget is the primary constraint
+- Below 10 HP requirement
+
+## Price Comparison in India
+
+| Type | 10 HP | 25 HP | 50 HP |
+|------|-------|-------|-------|
+| Piston | ₹60K–1L | ₹1.5–2.5L | ₹3–5L |
+| Screw | ₹1.5–2.5L | ₹3–5L | ₹6–10L |`,
+    relatedTerms: ["what-is-rfq", "lead-time"],
+    relatedCategories: ["compressors"],
+  },
+];
+
+// ─── Comparison Pages ─────────────────────────────────────────────────────────
+
+export interface ComparisonPage {
+  slug: string;
+  title: string;
+  shortDesc: string;
+  machineA: string;
+  machineB: string;
+  categoryA: string;
+  categoryB: string;
+  content: string;
+}
+
+export const COMPARISONS: ComparisonPage[] = [
+  {
+    slug: "cnc-machine-vs-conventional-lathe",
+    title: "CNC Machine vs Conventional Lathe — Which is Right for Your Workshop?",
+    shortDesc: "CNC lathes offer precision and repeatability for production; conventional lathes suit toolrooms and low-volume bespoke work.",
+    machineA: "CNC Machine",
+    machineB: "Conventional Lathe",
+    categoryA: "cnc-machines",
+    categoryB: "lathe-machines",
+    content: `## Overview
+
+Choosing between a CNC machine and a conventional lathe is a fundamental decision for any machining workshop. The right choice depends on your production volume, budget, and workforce skills.
+
+## Key Differences
+
+| Feature | CNC Machine | Conventional Lathe |
+|---------|-------------|-------------------|
+| Accuracy | ±0.001–0.01mm | ±0.02–0.05mm |
+| Repeatability | Excellent (same every time) | Operator-dependent |
+| Setup time | Longer (programming) | Shorter |
+| Operator skill | CNC programming | Manual machining |
+| Production volume | High volume ideal | Low volume, prototypes |
+| Cost | ₹5–30 Lakh | ₹50K–5 Lakh |
+| Complexity of parts | Complex, multi-feature | Simple to medium |
+
+## When CNC Wins
+
+- Batch sizes above 10 pieces
+- Tight tolerances (±0.01mm or tighter)
+- Complex profiles, threading, grooving in one setup
+- Consistent quality needed across large batches
+- Overnight/lights-out production required
+
+## When Conventional Lathe Wins
+
+- One-off repairs and prototype work
+- Simple turning where CNC programming overhead isn't justified
+- Budget constraints (conventional lathes cost 5–10× less)
+- Remote locations where CNC technicians aren't available
+
+## Total Cost of Ownership
+
+A CNC lathe costs more to buy but produces more parts per hour, reducing cost per piece in production. For batches above 50 pieces, CNC almost always wins on cost per part.
+
+## Recommendation
+
+**Start with conventional** if you do repair work, prototypes, or small batches. **Go CNC** if you have regular production orders with repeating part numbers.`,
+  },
+  {
+    slug: "hydraulic-press-vs-pneumatic-press",
+    title: "Hydraulic Press vs Pneumatic Press — Comparison Guide for Buyers",
+    shortDesc: "Hydraulic presses offer higher force and stroke control; pneumatic presses are faster and cleaner for lighter applications.",
+    machineA: "Hydraulic Press",
+    machineB: "Pneumatic Press",
+    categoryA: "press-machines",
+    categoryB: "press-machines",
+    content: `## Overview
+
+Both hydraulic and pneumatic presses use fluid pressure to generate force, but they use different media (oil vs air) and have different characteristics suited to different applications.
+
+## Technical Comparison
+
+| Feature | Hydraulic Press | Pneumatic Press |
+|---------|----------------|-----------------|
+| Force range | 1 ton – 5,000+ tons | Up to 30 tons |
+| Force control | Precise, variable | Limited control |
+| Speed | Slower | Faster (high SPM) |
+| Stroke control | Excellent | Limited |
+| Cleanliness | Oil leak risk | Clean (air) |
+| Energy | Higher operating cost | Lower cost |
+| Cost | Higher | Lower |
+| Maintenance | Oil changes, seals | Simpler |
+
+## Best Use Cases
+
+**Hydraulic press:**
+- Deep drawing operations
+- Large-tonnage forming (100–5000 ton)
+- Applications requiring precise force/stroke control
+- Forging, powder compaction, rubber moulding
+
+**Pneumatic press:**
+- Light assembly operations (pressing bearings, pins)
+- Spot welding assist
+- Labelling and marking
+- High-speed, low-force repetitive operations
+
+## Price in India
+
+- Pneumatic press (5–20 ton): ₹50K–3 Lakh
+- Hydraulic press (50 ton): ₹5–10 Lakh
+- Hydraulic press (200 ton): ₹15–35 Lakh
+
+## The Bottom Line
+
+If you need more than 30 tons of force, you need hydraulic. For light, fast, clean applications under 20 tons, pneumatic is simpler and cheaper to operate.`,
+  },
+  {
+    slug: "mig-welding-vs-tig-welding",
+    title: "MIG Welding vs TIG Welding — Which Process for Your Application?",
+    shortDesc: "MIG is faster and easier for structural steel; TIG produces cleaner, stronger welds for stainless, aluminium, and precision work.",
+    machineA: "MIG Welding",
+    machineB: "TIG Welding",
+    categoryA: "welding-equipment",
+    categoryB: "welding-equipment",
+    content: `## Overview
+
+MIG (Metal Inert Gas) and TIG (Tungsten Inert Gas) are the two most common welding processes in industrial manufacturing. Choosing the right one depends on your material, weld quality needs, and production speed requirements.
+
+## Process Comparison
+
+| Feature | MIG Welding | TIG Welding |
+|---------|-------------|-------------|
+| Speed | Fast | Slow |
+| Skill required | Lower | High |
+| Material range | Steel, SS, Aluminium | All metals including thin gauge |
+| Weld quality | Good | Excellent |
+| Spatter | Some | None |
+| Automation | Easy | Difficult |
+| Equipment cost | ₹15K–2 Lakh | ₹30K–3 Lakh |
+| Filler metal | Continuous wire | Separate filler rod (manual) |
+| Shielding gas | CO2, Argon mix | Pure Argon |
+
+## When to Use MIG
+
+- Structural steel fabrication
+- Automotive body repair and manufacturing
+- Heavy plate welding
+- Production environments needing speed
+- Robotic welding integration
+
+## When to Use TIG
+
+- Stainless steel (food, pharma, chemical industries)
+- Aluminium welding
+- Thin gauge sheet metal
+- Pipe welding with full penetration requirement
+- Aerospace and precision components where appearance matters
+
+## Cost Comparison in India
+
+| Equipment | MIG | TIG |
+|-----------|-----|-----|
+| Basic machine | ₹15K–50K | ₹30K–1.5 Lakh |
+| Industrial grade | ₹80K–2 Lakh | ₹1–3 Lakh |
+| Robotic cell | ₹15–50 Lakh | ₹20–80 Lakh |
+
+## Recommendation
+
+Use MIG for speed and volume. Use TIG when weld quality, appearance, or material compatibility requires it. Many shops have both — MIG for structural work, TIG for finishing or special materials.`,
+  },
+  {
+    slug: "belt-conveyor-vs-roller-conveyor",
+    title: "Belt Conveyor vs Roller Conveyor — Which is Right for Your Plant?",
+    shortDesc: "Belt conveyors handle irregular, fragile items smoothly; roller conveyors suit heavy, rigid loads with lower maintenance.",
+    machineA: "Belt Conveyor",
+    machineB: "Roller Conveyor",
+    categoryA: "conveyor-systems",
+    categoryB: "conveyor-systems",
+    content: `## Overview
+
+Belt and roller conveyors are the two most common material handling solutions in Indian manufacturing and warehousing. The right choice depends on your product, environment, and budget.
+
+## Technical Comparison
+
+| Feature | Belt Conveyor | Roller Conveyor |
+|---------|--------------|-----------------|
+| Product type | Any — loose, irregular, fragile | Rigid products with flat base |
+| Speed control | Easy with VFD | Possible but limited |
+| Incline capability | Yes (up to 30°) | Limited (gravity roller) |
+| Noise | Low | Moderate |
+| Maintenance | Belt replacement (periodic) | Bearing/roller replacement |
+| Cleanliness | Food-grade belts available | Harder to clean |
+| Cost | Moderate | Lower (gravity) |
+
+## Best Applications
+
+**Belt conveyor:**
+- Food and pharmaceutical (hygienic belts)
+- Bags, boxes, irregular shapes
+- Inclined or declined transport
+- Sorting and accumulation systems
+
+**Roller conveyor:**
+- Heavy cartons, pallets, drums
+- Warehouse order picking
+- Gravity flow (no motor needed for flat/slight decline)
+- Assembly lines with operator stations
+
+## Price in India
+
+- Belt conveyor: ₹8,000–25,000/meter (depending on width and load)
+- Gravity roller conveyor: ₹3,000–8,000/meter
+- Powered roller conveyor: ₹6,000–15,000/meter
+
+## Recommendation
+
+Choose belt for fragile or irregular products, food/pharma environments, or inclined transport. Choose roller for heavy rigid loads, warehousing, and where lower cost is the priority.`,
+  },
+  {
+    slug: "fiber-laser-vs-co2-laser-cutting",
+    title: "Fiber Laser vs CO2 Laser Cutting Machine — Complete Comparison",
+    shortDesc: "Fiber lasers excel at cutting metals faster with lower running costs; CO2 lasers are better for non-metals like acrylic and wood.",
+    machineA: "Fiber Laser",
+    machineB: "CO2 Laser",
+    categoryA: "sheet-metal",
+    categoryB: "sheet-metal",
+    content: `## Overview
+
+Fiber laser and CO2 laser cutting machines have different beam generation technologies that make them suited to very different applications. For industrial metal cutting in India, fiber laser has largely replaced CO2.
+
+## Technology Comparison
+
+| Feature | Fiber Laser | CO2 Laser |
+|---------|-------------|-----------|
+| Wavelength | 1,064 nm | 10,600 nm |
+| Metal cutting | Excellent | Good |
+| Non-metal cutting | Poor | Excellent |
+| Cutting speed | 2–3× faster on thin metals | Slower |
+| Running cost | Lower (no laser gas) | Higher (CO2 gas) |
+| Maintenance | Lower (solid state) | Higher (gas tubes, mirrors) |
+| Initial cost | Higher | Lower for equivalent power |
+| Reflective metals | Yes (Copper, Brass, Aluminium) | Difficult |
+| Electrical efficiency | ~30% wall-plug | ~10% wall-plug |
+
+## Best Materials
+
+**Fiber laser:** MS, SS, Aluminium, Copper, Brass, Titanium (all metals)
+**CO2 laser:** Acrylic, wood, MDF, rubber, leather, glass etching, some plastics
+
+## Price in India
+
+| Power | Fiber Laser | CO2 Laser |
+|-------|-------------|-----------|
+| 1 kW | ₹30–40 Lakh | ₹15–25 Lakh |
+| 2–3 kW | ₹45–70 Lakh | ₹25–40 Lakh |
+| 6–10 kW | ₹80–1.5 Crore | Not common |
+
+## Recommendation
+
+**For metal fabrication shops:** Fiber laser is the clear choice. Better speed, lower running cost, and can cut reflective metals.
+
+**For signage, advertising, or mixed material shops:** CO2 still makes sense for non-metal cutting.
+
+Almost all new industrial sheet metal shops in India are buying fiber laser — it has become the industry standard.`,
+  },
+];
+
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 export function getCityBySlug(slug: string): SeoCity | undefined {
@@ -874,4 +1651,20 @@ export function getCountryBySlug(slug: string): SeoCountry | undefined {
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
   return BLOG_POSTS.find((p) => p.slug === slug);
+}
+
+export function getStateBySlug(slug: string): SeoState | undefined {
+  return SEO_STATES.find((s) => s.slug === slug);
+}
+
+export function getIndustryBySlug(slug: string): SeoIndustry | undefined {
+  return SEO_INDUSTRIES.find((i) => i.slug === slug);
+}
+
+export function getGlossaryTermBySlug(slug: string): GlossaryTerm | undefined {
+  return GLOSSARY_TERMS.find((t) => t.slug === slug);
+}
+
+export function getComparisonBySlug(slug: string): ComparisonPage | undefined {
+  return COMPARISONS.find((c) => c.slug === slug);
 }
